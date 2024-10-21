@@ -1,27 +1,17 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import ContactForm from './ContactForm/ContactForm'; 
-import ContactList from './ContactList/ContactList';
-import Filter from './Filter';
-import styles from './App.module.css';
+import * as React from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
+import { baseTheme } from '@chakra-ui/theme';
+import TheRestOfYourApplication from './TheRestOfYourApplication';  // Import your main application component
 
-const App = () => {
-    const [filter, setFilter] = useState('');
-    const contacts = useSelector((state) => state.contacts.items);
+// Optionally extend the base theme if needed
+const theme = extendTheme(baseTheme);
 
-    const handleFilterChange = (e) => {
-        setFilter(e.target.value);
-    };
-
-    return (
-        <div className={styles.app}>
-            <h1>Phonebook</h1>
-            <ContactForm />
-            <Filter filter={filter} onChange={handleFilterChange} />
-            <h2>Contacts</h2>
-            <ContactList contacts={contacts} filter={filter} />
-        </div>
-    );
-};
+function App() {
+  return (
+    <ChakraProvider>
+      <TheRestOfYourApplication />
+    </ChakraProvider>
+  );
+}
 
 export default App;

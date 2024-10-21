@@ -1,0 +1,18 @@
+.userMenu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.userMenu p {
+  margin: 0;
+}
+
+.userMenu button {
+  padding: 5px 10px;
+  background-color: #ff6347; /* Tomato color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
